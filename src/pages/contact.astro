@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import NavBar from "../components/NavBar.astro";
+import Loader from '../components/Loader.astro';
+import { config, sampleCodes, skills } from '../config';
+---
+
+<Layout color={config.color} description={config.description} image={config.image} keywords={config.keywords} title={config.title} url={config.url}>
+  <main>
+    <Loader/>
+    <Header code={{
+      content: sampleCodes.text,
+      lang: sampleCodes.lang
+    }}></Header>
+
+    <NavBar buttons={[
+      {
+        path: "/",
+        text: "Projects"
+      },
+      {
+        path: "/experience",
+        text: "Experience"
+      },
+      {
+        path: "#",
+        text: "Contact"
+      },
+    ]}/>
+
+    <section class="contact">
+      <h1>UNDER CONSTRUCTION</h1>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section.contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+  }
+</style>

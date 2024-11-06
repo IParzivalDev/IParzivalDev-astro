@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import NavBar from "../components/NavBar.astro";
+import Loader from '../components/Loader.astro';
+import { config, sampleCodes, skills } from '../config';
+import Skill from "../components/Skill.astro";
+
+// TODO: CREAR SISTEMA DE PÁGINAS
+---
+
+<Layout color={config.color} description={config.description} image={config.image} keywords={config.keywords} title={config.title} url={config.url}>
+  <main>
+    <Loader/>
+    <Header code={{
+      content: sampleCodes.text,
+      lang: sampleCodes.lang
+    }}></Header>
+
+    <NavBar buttons={[
+      {
+        path: "/",
+        text: "Projects"
+      },
+      {
+        path: "#",
+        text: "Experience"
+      },
+      {
+        path: "/contact",
+        text: "Contact"
+      },
+    ]}/>
+
+    <section class="experience">
+      {
+        skills.map(skill => 
+          <Skill img={skill.img} name={skill.name} url={skill.url} />
+        )
+      }
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section.experience{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+  }
+</style>

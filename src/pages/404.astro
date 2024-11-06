@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro"
+import { config } from '../config';
+import Loader from '../components/Loader.astro';
+---
+<Layout color={config.color} description={config.description} image={config.image} keywords={config.keywords} title="Page not found!" url={config.url}>
+  <main>
+    <Loader/>
+    <nav>
+      <a href="/"><p>Back</p></a>
+    </nav>
+    <h2>404</h2>
+    <h3>Chicka Chicka Slim Shady!</h3>
+  </main>
+</Layout>
+<style>
+  main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  h2{
+    font-size: 30vh;
+  }
+</style>
+
+<script>
+
+</script>

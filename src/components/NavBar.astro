@@ -1,0 +1,57 @@
+---
+interface Props {
+  buttons: { text: string, path:string }[]
+}
+
+const { buttons } = Astro.props
+
+const buttonBg = (path:string):string => {
+  if (path === "#"){
+    return "background-color:#181818;"
+  }else{
+    return ""
+  }
+}
+---
+
+<nav>
+  <ul class="buttons">
+    {
+      buttons.map(button => 
+        <li class="button" id={button.path} style={buttonBg(button.path)}>
+          <a href={button.path}>
+            <p>{button.text}</p>
+          </a>
+        </li>
+      )
+    }
+  </ul>
+</nav>
+
+<style>
+  
+  nav{
+    background: #0f0f0f;
+    border-radius: 10px;
+    border: #252525 1px solid;
+    margin-block: 10px !important;
+  }
+  ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  ul li p{
+    padding-inline: 20px !important;
+    padding-block: 10px !important;
+    font-size: 20px;
+  }
+
+  ul li a{
+    text-decoration: none;
+  }
+</style>
+
+<script>
+
+</script>
